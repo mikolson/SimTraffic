@@ -1,0 +1,4 @@
+1. Skalowanie obiektów
+2. Sprawdzenie czy po wjechaniu na skrzyzowanie bedzie mozna z niego wyjechac
+	jezeli nie to wjazd na skrzyzowanie nie powinien byc mozliwy
+3. Zapewnienie zasady ze pierwszenstwo maja pojazdy nadjezdzajace z prawej strony

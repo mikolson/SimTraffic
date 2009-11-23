@@ -1,0 +1,178 @@
+#
+# An unexpected error has been detected by HotSpot Virtual Machine:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x04d7dd13, pid=3760, tid=3112
+#
+# Java VM: Java HotSpot(TM) Client VM (1.5.0_01-b08 mixed mode, sharing)
+# Problematic frame:
+# C  [swt-win32-3139.dll+0x2dd13]
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x02e3dde8):  JavaThread "SWT UI Thread for VE" [_thread_in_native, id=3112]
+
+siginfo: ExceptionCode=0xc0000005, reading address 0x00000000
+
+Registers:
+EAX=0x0030f660, EBX=0x00000000, ECX=0x000c3d98, EDX=0x00000000
+ESP=0x04edf8c0, EBP=0x04edf8c8, ESI=0x00000000, EDI=0x2306506c
+EIP=0x04d7dd13, EFLAGS=0x00010206
+
+Top of Stack: (sp=0x04edf8c0)
+0x04edf8c0:   02e3dea4 2306506c 04edf8e8 04d578c8
+0x04edf8d0:   2306506c 00000000 0030f660 02e3dde8
+0x04edf8e0:   26b56668 26b56668 04edf920 00ad826f
+0x04edf8f0:   02e3dea4 04edf928 04edf938 00000000
+0x04edf900:   0030f660 04edf904 00000000 04edf938
+0x04edf910:   26b60798 00000000 26b56668 04edf930
+0x04edf920:   04edf958 00ad2923 26b60438 00ad6449
+0x04edf930:   0030f660 00000000 23065060 04edf93c 
+
+Instructions: (pc=0x04d7dd13)
+0x04d7dd03:   00 00 00 75 14 c1 e9 02 83 e2 03 83 f9 08 72 29
+0x04d7dd13:   f3 a5 ff 24 95 28 de d7 04 8b c7 ba 03 00 00 00 
+
+
+Stack: [0x04ea0000,0x04ee0000),  sp=0x04edf8c0,  free space=254k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [swt-win32-3139.dll+0x2dd13]
+C  [swt-win32-3139.dll+0x78c8]
+j  org.eclipse.swt.internal.win32.OS.MoveMemory([BII)V+0
+j  org.eclipse.swt.graphics.Image.getImageData()Lorg/eclipse/swt/graphics/ImageData;+1641
+j  org.eclipse.ve.internal.swt.targetvm.ImageCapture$1.run()V+124
+J  org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Z)Z
+J  org.eclipse.swt.widgets.Display.readAndDispatch()Z
+J  org.eclipse.ve.internal.swt.targetvm.Environment$3.run()V
+v  ~OSRAdapter
+v  ~StubRoutines::call_stub
+V  [jvm.dll+0x8176e]
+V  [jvm.dll+0xd481d]
+V  [jvm.dll+0x8163f]
+V  [jvm.dll+0x8139c]
+V  [jvm.dll+0x9c05c]
+V  [jvm.dll+0xfeece]
+V  [jvm.dll+0xfee9c]
+C  [MSVCRT.dll+0x2a3b0]
+C  [kernel32.dll+0xb50b]
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  org.eclipse.swt.internal.win32.OS.MoveMemory([BII)V+0
+j  org.eclipse.swt.graphics.Image.getImageData()Lorg/eclipse/swt/graphics/ImageData;+1641
+j  org.eclipse.ve.internal.swt.targetvm.ImageCapture$1.run()V+124
+J  org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Z)Z
+J  org.eclipse.swt.widgets.Display.readAndDispatch()Z
+J  org.eclipse.ve.internal.swt.targetvm.Environment$3.run()V
+v  ~OSRAdapter
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x02cc3c78 JavaThread "ControlManager Feedback Controller callback event queue" [_thread_blocked, id=2672]
+=>0x02e3dde8 JavaThread "SWT UI Thread for VE" [_thread_in_native, id=3112]
+  0x03f37358 JavaThread "AWT-Windows" daemon [_thread_in_native, id=3628]
+  0x02e75a98 JavaThread "Connection Thread" [_thread_in_native, id=3148]
+  0x02cb0a88 JavaThread "Connection Thread" [_thread_in_native, id=1348]
+  0x00acde10 JavaThread "Timeout Termination Thread" [_thread_blocked, id=3120]
+  0x00a9eb10 JavaThread "Server Thread-Project (Magisterska)-VM for Magisterska" [_thread_in_native, id=3948]
+  0x00a685a0 JavaThread "Low Memory Detector" daemon [_thread_blocked, id=1048]
+  0x00a67218 JavaThread "CompilerThread0" daemon [_thread_blocked, id=2356]
+  0x00a665f0 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=1936]
+  0x00a63528 JavaThread "Finalizer" daemon [_thread_blocked, id=912]
+  0x00a62048 JavaThread "Reference Handler" daemon [_thread_blocked, id=996]
+  0x003a76b8 JavaThread "main" [_thread_blocked, id=3772]
+
+Other Threads:
+  0x00a39b40 VMThread [id=4040]
+  0x00a697b8 WatcherThread [id=3304]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap
+ def new generation   total 576K, used 0K [0x22ad0000, 0x22b70000, 0x22fb0000)
+  eden space 512K,   0% used [0x22ad0000, 0x22ad0000, 0x22b50000)
+  from space 64K,   0% used [0x22b60000, 0x22b60000, 0x22b70000)
+  to   space 64K,   0% used [0x22b50000, 0x22b50000, 0x22b60000)
+ tenured generation   total 5552K, used 3857K [0x22fb0000, 0x2351c000, 0x26ad0000)
+   the space 5552K,  69% used [0x22fb0000, 0x233746d0, 0x23374800, 0x2351c000)
+ compacting perm gen  total 8192K, used 2263K [0x26ad0000, 0x272d0000, 0x2aad0000)
+   the space 8192K,  27% used [0x26ad0000, 0x26d05ce0, 0x26d05e00, 0x272d0000)
+    ro space 8192K,  62% used [0x2aad0000, 0x2afd7d30, 0x2afd7e00, 0x2b2d0000)
+    rw space 12288K,  46% used [0x2b2d0000, 0x2b85c8a0, 0x2b85ca00, 0x2bed0000)
+
+Dynamic libraries:
+0x00400000 - 0x0040c000 	C:\Program Files\Java\jre1.5.0_01\bin\javaw.exe
+0x7c900000 - 0x7c9b2000 	C:\WINDOWS\system32\ntdll.dll
+0x7c800000 - 0x7c8fb000 	C:\WINDOWS\system32\kernel32.dll
+0x77dc0000 - 0x77e6c000 	C:\WINDOWS\system32\ADVAPI32.dll
+0x77e70000 - 0x77f01000 	C:\WINDOWS\system32\RPCRT4.dll
+0x77d30000 - 0x77dc0000 	C:\WINDOWS\system32\USER32.dll
+0x77f10000 - 0x77f57000 	C:\WINDOWS\system32\GDI32.dll
+0x77c00000 - 0x77c58000 	C:\WINDOWS\system32\MSVCRT.dll
+0x6d640000 - 0x6d7c5000 	C:\Program Files\Java\jre1.5.0_01\bin\client\jvm.dll
+0x76b20000 - 0x76b4e000 	C:\WINDOWS\system32\WINMM.dll
+0x6d280000 - 0x6d288000 	C:\Program Files\Java\jre1.5.0_01\bin\hpi.dll
+0x76be0000 - 0x76beb000 	C:\WINDOWS\system32\PSAPI.DLL
+0x6d610000 - 0x6d61c000 	C:\Program Files\Java\jre1.5.0_01\bin\verify.dll
+0x6d300000 - 0x6d31d000 	C:\Program Files\Java\jre1.5.0_01\bin\java.dll
+0x6d630000 - 0x6d63f000 	C:\Program Files\Java\jre1.5.0_01\bin\zip.dll
+0x6d4c0000 - 0x6d4d3000 	C:\Program Files\Java\jre1.5.0_01\bin\net.dll
+0x71a50000 - 0x71a67000 	C:\WINDOWS\system32\WS2_32.dll
+0x71a40000 - 0x71a48000 	C:\WINDOWS\system32\WS2HELP.dll
+0x719f0000 - 0x71a30000 	C:\WINDOWS\System32\mswsock.dll
+0x76f10000 - 0x76f37000 	C:\WINDOWS\system32\DNSAPI.dll
+0x76fa0000 - 0x76fa8000 	C:\WINDOWS\System32\winrnr.dll
+0x76f50000 - 0x76f7d000 	C:\WINDOWS\system32\WLDAP32.dll
+0x76fb0000 - 0x76fb6000 	C:\WINDOWS\system32\rasadhlp.dll
+0x66780000 - 0x667d8000 	C:\WINDOWS\system32\hnetcfg.dll
+0x71a30000 - 0x71a38000 	C:\WINDOWS\System32\wshtcpip.dll
+0x6d000000 - 0x6d166000 	C:\Program Files\Java\jre1.5.0_01\bin\awt.dll
+0x72f90000 - 0x72fb6000 	C:\WINDOWS\system32\WINSPOOL.DRV
+0x76360000 - 0x7637d000 	C:\WINDOWS\system32\IMM32.dll
+0x774d0000 - 0x7760d000 	C:\WINDOWS\system32\ole32.dll
+0x5b1d0000 - 0x5b208000 	C:\WINDOWS\system32\uxtheme.dll
+0x736f0000 - 0x73739000 	C:\WINDOWS\system32\ddraw.dll
+0x73b50000 - 0x73b56000 	C:\WINDOWS\system32\DCIMAN32.dll
+0x738d0000 - 0x739a0000 	C:\WINDOWS\system32\D3DIM700.DLL
+0x10000000 - 0x10005000 	C:\WINDOWS\BricoPacks\Vista Inspirat\ObjectDock\DockShellHook.dll
+0x746d0000 - 0x7471b000 	C:\WINDOWS\system32\MSCTF.dll
+0x63000000 - 0x63013000 	C:\WINDOWS\system32\SynTPFcs.dll
+0x77bf0000 - 0x77bf8000 	C:\WINDOWS\system32\VERSION.dll
+0x04d50000 - 0x04da0000 	D:\WorkSpace\.metadata\.plugins\org.eclipse.ve.java.core\.cache\.libCache\785427959\swt-win32-3139.dll
+0x5d520000 - 0x5d5b7000 	C:\WINDOWS\system32\COMCTL32.dll
+0x76380000 - 0x763c9000 	C:\WINDOWS\system32\comdlg32.dll
+0x77f60000 - 0x77fd6000 	C:\WINDOWS\system32\SHLWAPI.dll
+0x7c9c0000 - 0x7e786000 	C:\WINDOWS\system32\SHELL32.dll
+0x77110000 - 0x7719c000 	C:\WINDOWS\system32\OLEAUT32.dll
+0x74d40000 - 0x74dab000 	C:\WINDOWS\system32\USP10.dll
+0x773c0000 - 0x774c2000 	C:\WINDOWS\WinSxS\x86_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.2600.2180_x-ww_a84f1ff9\comctl32.dll
+0x74c30000 - 0x74c5c000 	C:\WINDOWS\system32\oleacc.dll
+0x76050000 - 0x760b5000 	C:\WINDOWS\system32\MSVCP60.dll
+0x76350000 - 0x76355000 	C:\WINDOWS\system32\msimg32.dll
+
+VM Arguments:
+jvm_args: -Dproxyvm.registryKey=31805727 -Dproxyvm.masterPort=1355 -Dproxyvm.bufsize=16000 -Dproxyvm.servername=Project (Magisterska)-VM for Magisterska -Xverify:none -Djava.library.path=D:\WorkSpace\.metadata\.plugins\org.eclipse.ve.java.core\.cache\.libCache\785427959
+java_command: org.eclipse.jem.internal.proxy.vm.remote.RemoteVMApplication
+
+Environment Variables:
+JAVA_HOME=c:\Java\jdk1.5
+CLASSPATH=.;
+PATH=C:\texmf\miktex\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\Program Files\ATI Technologies\ATI Control Panel;c:\j2sdk1.4.2_03\bin;C:\PROGRA~1\Tcl\bin;C:\java\j2ee\bin;d:\Java\Coguar\Cougaar\cougaar\BIN
+USERNAME=Administrator
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=x86 Family 6 Model 13 Stepping 8, GenuineIntel
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows XP Build 2600 Dodatek Service Pack 2
+
+CPU:total 1 family 6, cmov, cx8, fxsr, mmx, sse, sse2
+
+Memory: 4k page, physical 523440k(24260k free), swap 1514864k(7880k free)
+
+vm_info: Java HotSpot(TM) Client VM (1.5.0_01-b08) for windows-x86, built on Dec  6 2004 19:51:00 by "java_re" with MS VC++ 6.0
+
